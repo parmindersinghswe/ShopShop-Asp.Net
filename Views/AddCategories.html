@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/AddCategories.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+
+                    <li>
+                        <a href="">User Account</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Operations<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Products</a></li>
+                            <li><a href="#">Edit Products</a></li>
+                            <li><a href="#">List Of Products</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-bind="if:IsLoggedIn()"><a id="UserName"><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="#" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                    <li>
+                        <a href="Cart.html">
+                            <img src="../scripts/images/Icons/CartIcon.png" />(<span data-bind="text:CartItems()"></span>)
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container jumbotron" id="bodycontainer">
+        <div class="well text-center"><h1>Add Categories</h1></div>
+        <form>
+            <div class="form-group">
+                <label for="txtCategory">Enter Category Name You Want To Add New</label>
+                <input type="text" class="form-control" id="txtCategory"  placeholder="Enter New Category" data-bind="value:Category">
+                <button class="form-control btn btn-success" data-bind="click:Add">Add </button>
+            </div>
+        </form>
+    </div>
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/AddCategories.js"></script>
+</body>
+</html>

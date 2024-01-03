@@ -1,0 +1,17 @@
+﻿@font-face {font-family: 'CHLORINR';src: url('../fonts/CHLORINR.TTF') format('truetype');}
+@font-face {font-family: 'Komoda';src: url('../fonts/Komoda.otf') format('opentype');}
+a {color: white;}
+.navbar-brand {font-size: 40px;font-family: CHLORINR;}
+.navbar {background: #0099CC;}
+.icon-bar, .navbar-toggle{border: 1px solid white;}
+.navbar-nav li a:hover {background: #0099CC;font-size: 20px;color: white;}
+.navbar-header a:hover {background: #0099CC;font-size: 46px;color: white;}
+.navbar-header a{font-size: 24px;}
+#body {margin-top: 60px;box-shadow: 1px 1px 2px 1px;padding-bottom: 10px;background-color: azure;}
+.Name button{text-decoration: none;}
+@media only screen and (max-width: 1023px){#UserName{display: none;}}
+@media only screen and (max-width:767px){#UserName{display:block;}.MenuHr{display:block;}}
+@media only screen and (min-width:768px)
+{.MenuHr{display:none;}}
+.well{font-family:'Times New Roman', Times, serif}
+ul{font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif}

@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/Summary.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"><i class="fa fa-bars fa-1x"></i></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Home.html"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li data-bind="if:IsLoggedIn()"><a href="">User Account</a></li>
+                    <li class="dropdown" data-bind="if:IsAdmin()">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Options<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Items</a></li>
+                            <li><a href="#">Edit Items</a></li>
+                            <li><a href="#">List Of Items</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr class="MenuHr" />
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-bind="if:LoggedIn()"><a id="UserName"><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="#" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                    <li>
+                        <a href="Cart.html">
+                            <img src="../scripts/images/Icons/CartIcon.png" />(<span data-bind="text:CartItems()"></span>)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body">
+        <div class="Address col-xs-12 h4">
+            <h2 class="well text-center">Shipping Address</h2>
+                    <p>
+            <span data-bind="text:Address().FirstName"> </span> <span data-bind="text:Address().LastName"></span>&nbsp; &nbsp; &nbsp; &nbsp;<span data-bind="text:Address().MobileNumber"></span>
+            <br /><br/>
+            <span data-bind="text:Address().FlatNoBuildingName"></span>&nbsp;
+            <span data-bind="text:Address().LocalityOrStreet"></span>&nbsp;
+            <span data-bind="text:Address().LandMark"></span>&nbsp;
+            <span data-bind="text:Address().City"></span>&nbsp;
+            <span data-bind="text:Address().State"></span>&nbsp;
+            <span data-bind="text:Address().PinCode"></span>
+        </p> 
+        <div>
+        <button class="btn btn-warning btn-lg" data-bind="click:ChangeOrAddAddress"> Change Or Add</button>
+        </div>
+    <div><input type="checkbox"  data-bind="checked:BillingShippingSame"/> Billing Address Is Same as Shipping Address</div>
+   </div>
+
+
+
+
+
+
+
+
+        <div id="AddressForm" data-bind="if:ShowAddress">
+            <h2 class="text-center">Enter Billing Address Detail</h2>
+            <form class="form-horizontal center-block">
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="txtCity">Enter City Name</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="txtCity" placeholder="Enter City Name" data-bind="value:BillingAddress().City" />
+                    </div>
+               
+                    <label class="control-label col-md-2" for="txtLocalityOrStreet">Locality or Street</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="txtLocalityOrStreet" placeholder="Enter Street Name" data-bind="value:BillingAddress().LocalityOrStreet" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="txtFlatNoBuildingName">FlatNo., Building</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="txtFlatNoBuildingName" placeholder="flat number, Building Name" data-bind="value:BillingAddress().FlatNoBuildingName" />
+                    </div>
+                                   <label class="control-label col-md-2" for="txtPinCode">Enter Pin Code</label>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" id="txtPinCode" placeholder="enter pin code" data-bind="value:BillingAddress().PinCode" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="txtState">Your State Name</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="txtState" placeholder="state name" data-bind="value:BillingAddress().State" />
+                    </div>
+                <!--</div>
+
+                <div class="form-group">-->
+                    <label class="control-label col-md-2" for="txtLandMark">Land Mark If Any</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="txtLandMark" placeholder="any land mark" data-bind="value:BillingAddress().LandMark" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="txtFirstName">Enter First Name</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="txtFirstName" placeholder="First Name" data-bind="value:BillingAddress().FirstName" />
+                    </div>
+                <!--</div>
+                <div class="form-group">-->
+                    <label class="control-label col-md-2" for="txtLast">Enter Last</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" id="txtLastName" placeholder="Last Name" data-bind="value:BillingAddress().LastName" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="txtMobileNumber">Enter Mobile No</label>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" id="txtMobileNumber" placeholder="Your Mobile Number" data-bind="value:BillingAddress().MobileNumber" />
+                    </div>
+                    <!--</div>
+        <div class="form-group">-->
+                    <label class="control-label col-md-2" for="txtAlternateMobileNumber">Alternate No</label>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" id="txtAlternateMobileNumber" placeholder="any alternate mobile number" data-bind="value:BillingAddress().AlternateMobileNumber" />
+                    </div>
+                </div>
+                <!--<div class="form-group">
+                    <label class="control-label col-sm-3" for="txtAlternateMobileNumber">Alternate Mobile</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="txtAlternateMobileNumber" placeholder="another alternate mobile number" data-bind="value:Address().AlternateMobileNumber" />
+                    </div>
+                </div>-->
+
+                <!--<div class="form-group">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        <button class="col-xs-5  btn" data-bind="click:AddAddress">Add</button>
+                        <div class="col-xs-2"></div>
+                        <button class="col-xs-5 btn" data-bind="click:Later">Later</button>
+
+                    </div>
+                </div>-->
+            </form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div id="Products">
+             <div class="text-center well-sm h1 well" id="ProductsHeader">Order Product(s)</div>
+        <div id="Products" data-bind="foreach:{data:Products,as:'Product'}">
+            <div class="container">
+                <div class="col-md-2">
+                    <div>Image</div><div class="col-md-2">
+                        Qty: <span><input class="Qty" min="1" max="100" type="number" data-bind="value:Product.Qty" /></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    Detail:<br />
+                    <div data-bind="text:Product.Name"></div>
+                    <div>Price: <span data-bind="text:Product.Price">Price</span></div>
+                </div>
+
+                <div class="col-md-3">Delivery Detail</div>
+                <div class="col-md-3">Total= <span data-bind="text:Product.TotalAmount"></span> Rs.</div>
+                <div class="col-md-1">
+               
+                </div>
+            </div>
+            <hr />
+        </div>
+            </div>
+        </div>
+    <div class="container SummaryAndCheckOut jumbotron">
+        <div class="col-sm-6 Summary well">
+           <div><h3>Summary</h3></div>
+            
+            <div class="Summary1">
+          <div class="col-xs-6">Products Count: <span data-bind="text:ProductsCount"></span></div>
+            <div class="col-xs-6"> Price Products(<span data-bind="text:ProductsCount"></span>): Rs.<span data-bind="text:Bill()"></span></div>
+           </div>
+            <div class="btn"></div>
+        <div class="Summary2">
+             <div class="col-xs-6">    Delivery Rs.<span data-bind="text:DeliveryPrice"></span></div>
+            <div class="col-xs-6">   Total Bill: Rs.<span data-bind="text:TotalBill()"></span></div>
+            <hr />
+        </div>
+            </div>
+        <div class="col-sm-6 CheckOut well">
+            <div><h3>Product Bill Payment</h3></div>
+         
+            <button class="btn form-control btn-primary" data-bind="click:PayOnDelivery">Pay On Delivery</button>
+            <div class="btn"></div>
+            <button class="btn form-control btn-primary" data-bind="click:PayNow">Pay Now</button>
+        </div>
+    </div>
+    <div class="footer"></div>
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/Summary.js"></script>
+</body>
+</html>

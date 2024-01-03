@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/AddAddress.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <!--<ul class="nav navbar-nav navbar-left h1">
+                    <li><a><span data-bind="text:Role"></span></a></li>
+                </ul>-->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+
+                    <li data-bind="if:IsLoggedIn()">
+                        <a href="">User Account</a>
+                    </li>
+                    <li class="dropdown" data-bind="if:IsAdmin()">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Options<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Items</a></li>
+                            <li><a href="#">Edit Items</a></li>
+                            <li><a href="#">List Of Items</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-bind="if:LoggedIn()"><a><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="#" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                    <li><a href="Cart.html"><img src="../scripts/images/Icons/CartIcon.png" />(<span data-bind="text:CartItems()"></span>)</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="margin-top:50px">
+        <h2 class="well text-center">Enter Address Detail</h2>
+        <form method="post" class="form-horizontal" style="max-width:700px;margin:auto;">
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtCity">City</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtCity" placeholder="Enter City Name" data-bind="value:Address().City" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtLocalityOrStreet">Locality or Street</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtLocalityOrStreet" placeholder="Enter Street Name" data-bind="value:Address().LocalityOrStreet" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtFlatNoBuildingName">FlatNo., Building</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtFlatNoBuildingName" placeholder="flat number, Building Name" data-bind="value:Address().FlatNoBuildingName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtPinCode">Pin Code</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="txtPinCode" placeholder="enter pin code" data-bind="value:Address().PinCode" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtState">State</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtState" placeholder="state name" data-bind="value:Address().State" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtLandMark">Land Mark</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtLandMark" placeholder="any land mark" data-bind="value:Address().LandMark" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtFirstName">First Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtFirstName" placeholder="Your First Name" data-bind="value:Address().FirstName" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtLastName">LastName</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtLastName" placeholder="Your Last Name" data-bind="value:Address().LastName" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtMobileNumber">Mobile</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtMobileNumber" placeholder="mobile number for contact" data-bind="value:Address().MobileNumber" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="txtAlternateMobileNumber">Alternate Mobile</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="txtAlternateMobileNumber" placeholder="another alternate mobile number" data-bind="value:Address().AlternateMobileNumber" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9">
+                    <button class="col-xs-5  btn" data-bind="click:AddAddress">Add</button>
+                    <div class="col-xs-2"></div>
+                    <button class="col-xs-5 btn" data-bind="click:Later">Later</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/AddAddress.js"></script>
+ 
+</body>
+</html>

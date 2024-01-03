@@ -1,0 +1,35 @@
+﻿.Product {
+    margin: auto;
+    max-width: 250px;
+    margin-top: 30px;
+    height: 270px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 1px 0px;
+    padding-top:10px;
+}
+#body {padding-bottom: 30px;}
+.Image {
+    border: 1px solid lightgray;
+    height: 120px;
+    max-width: 80%;
+    margin:auto;
+}
+.Price, .Name {
+    margin: auto;
+    width: 80%;
+    margin-top: 5px;
+}
+.BuyAddToCart {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+.footer {height: 10px;bottom: 0;}
+::selection {
+color:white;
+    background: darkorange;
+}
+
+
+

@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/bootstrap.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <link href="../scripts/css/Home.css" rel="stylesheet" />
+    <title>Shop-Shop Home</title>
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"><i class="fa fa-bars fa-1x"></i></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Home.html"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li data-bind="if:IsLoggedIn()"><a href="">User Account</a></li>
+                    <li class="dropdown" data-bind="if:IsAdmin()">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Options<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Items</a></li>
+                            <li><a href="#">Edit Items</a></li>
+                            <li><a href="#">List Of Items</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr class="MenuHr"/>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        
+
+
+                        <!--<div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button">Button</button>
+                            </div>
+                        </div>-->
+
+
+
+                        </li>
+                    <li data-bind="if:LoggedIn()"><a id="UserName"><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="#" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                    <li>
+                        <a href="Cart.html">
+                            <img src="../scripts/images/Icons/CartIcon.png" />(<span data-bind="text:CartItems()"></span>)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        </div>
+
+
+    <div id="body" class="container">
+        <div id="categories" data-bind="foreach:{data:Categories,as:'Category'}">
+            <hr />
+            <div><span data-bind="text:Category.Name"></span></div>
+            <div class="container">
+            <div class="Products " data-bind="foreach:{data:Category.Products,as:'Product'}">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="Product">
+                        <div class="ImageDiv" style="margin-top:10px;"><div class="Image">Image</div></div>
+                        <div class="Name" tooltip="hello"><button class="btn btn-link" data-toggle="tooltip" data-bind="text:Product.Name"></button></div>
+                        <div class="Price">Price is:Rs. <span data-bind="text:Product.Price"></span></div>
+                        <div class="BuyAddToCart">
+                            <div class="form-group row">
+                                <div class="col-xs-6">
+                                    <input type="button" class="form-control form-control-lg btn-toolbar btn-primary" value="Buy" data-bind="click:Buy" />
+                                </div>
+                                <div class="col-xs-6">
+                                    <input type="button" class="form-control form-control-lg btn-primary" value="Cart" data-bind="click:AddToCart" />
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+
+    <div class="footer"></div>
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/Home.js"></script>
+</body>
+</html>

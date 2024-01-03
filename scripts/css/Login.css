@@ -1,0 +1,6 @@
+﻿body, html {margin: 0px;background-image: url('../Images/Background/Login.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;height: 96.15%;}
+h1{color:white;background-color:#87ceeb;max-width:210px;margin-left:auto;margin-right:auto;border-radius:50%;text-align:center;}
+.jumbotron{ opacity: 0.9;}
+#btnSubmit{float:right;}
+#btnRegister{float:left;}
+

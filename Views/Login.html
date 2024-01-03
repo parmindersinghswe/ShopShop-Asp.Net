@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/Login.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <title>Login</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right"></ul>
+            </div>
+        </div>
+    </nav>
+    <div class="body">
+        <div class="container" style="max-width:600px;margin-top:50px;">
+            <div class="subcontainer jumbotron">
+                <h1>Login</h1>
+                <form class="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" data-bind="value:UserName">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" data-bind="value:Password">
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Remember Password</label>
+                    </div><br />
+                    <div class="form-group">
+                        <button id="btnRegister" class="btn btn-primary col-xs-4" data-bind="click:Register">Register</button>
+                        <button id="btnSubmit" class="btn btn-primary col-xs-4" data-bind="click:Login" autofocus>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="../scripts/jquery-3.3.1.min.js"></script>
+        <script src="../scripts/bootstrap.min.js"></script>
+        <script src="../scripts/knockout-3.4.2.js"></script>
+        <script src="../scripts/javascript/Header.js"></script>
+        <script src="../scripts/javascript/Login.js"></script>
+    </div>
+</body>
+</html>

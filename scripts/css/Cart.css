@@ -1,0 +1,64 @@
+﻿.Product {
+    margin: auto;
+    max-width: 450px;
+    margin-top: 30px;
+    height: 300px;
+    border-radius: 15px;
+}
+.Image {
+    background-color: gray;
+    width: 90%;
+    margin: auto;
+    height: 200px;
+}
+.Price, .Name {
+    margin: auto;
+    width: 80%;
+    margin-top: 5px;
+}
+.BuyAddToCart {
+    width: 80%;
+    margin: auto;
+    margin-top: 10px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #0d0d0d;
+    color: white;
+    text-align: center;
+}
+td {
+    border: 1px solid green;
+}
+.Qty {
+    width: 45px;
+}
+@media only screen and (max-width:991px)
+{
+    .btnRemove
+    {
+        display:compact;
+    }
+    .btnRemoveIcon
+    {
+        display:none;
+    }
+    .Detail,.DeliveryDetail
+{
+    padding:10px;
+}
+    div{text-align:center;}
+}
+@media only screen and (min-width:992px)
+{
+     .btnRemove
+    {
+        display:none;
+    }
+}
+.Continue{
+ box-shadow: 1px 1px 2px 1px;
+}

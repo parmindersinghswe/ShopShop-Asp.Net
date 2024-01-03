@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/bootstrap.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <link href="../scripts/css/Thanks.css" rel="stylesheet" />
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"><i class="fa fa-bars fa-1x"></i></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Home.html"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li data-bind="if:IsLoggedIn()"><a href="">User Account</a></li>
+                    <li class="dropdown" data-bind="if:IsAdmin()">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Options<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Items</a></li>
+                            <li><a href="#">Edit Items</a></li>
+                            <li><a href="#">List Of Items</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr class="MenuHr" />
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                    </li>
+                    <li data-bind="if:LoggedIn()"><a id="UserName"><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                    <li>
+                        <a href="Cart.html">
+                            <img src="../scripts/images/Icons/CartIcon.png" />(<span data-bind="text:CartItems()"></span>)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="body">
+        <div class="container">
+            <div class="col-sm-9">
+                <h1>Thank you for your order</h1>
+                <h3>OrderId:<span data-bind="text:OrderId"></span></h3>
+                <h4>You will be receive an email confirmation shortly at <a><span data-bind="text:EmailId"></span></a></h4>
+
+                <h5><a href="#">Print Receipt</a></h5>
+            </div>
+            <hr class="MenuHr" />
+            <div class="col-sm-3">
+                <h4>Questions?</h4>
+                <h5>Call 098907 or</h5>
+                <h5><a>Email</a></h5>
+            </div>
+            <div class="col-xs-12"><a class="btn btn-warning" href="Home.html">Continue Shopping</a></div>
+       </div>
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/Thanks.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/AddProducts.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar  navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <!--<ul class="nav navbar-nav navbar-left h1">
+                    <li><a><span data-bind="text:Role"></span></a></li>
+                </ul>-->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+
+                    <li>
+                        <a href="">User Account</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Operations<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Products</a></li>
+                            <li><a href="#">Edit Products</a></li>
+                            <li><a href="#">List Of Products</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-bind="if:IsLoggedIn()"><a><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="#" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                    <li>
+                        <a href="Cart.html">
+                            <img src="../scripts/images/Icons/CartIcon.png" />(<span data-bind="text:CartItems()"></span>)
+                        </a>
+                    </li> 
+                 </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="height:600px;margin-top:50px">
+        <div class="jumbotron">
+        <div class="well">
+            <h2 class="text-center">Add New Product To the Shopping Kart</h2>
+            </div>
+        
+     <form>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Select Category</label>
+                <div class="col-sm-10">
+                    <select type="email" class="form-control form-control-sm" id="colFormLabelSm" data-bind="options:Categories(),value:Category"></select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Name of Product</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="product name" data-bind="value:Name" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Price of product</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" id="colFormLabel" placeholder="product price" data-bind="value:Price" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Number Of Products</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control form-control-lg" id="colFormLabelLg" placeholder="number of products in integer" data-bind="value:Count" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" class="form-control form-control-lg btn-success" value="ADD" data-bind="click:Add" />
+                </div>
+                <div class="col-sm-12">
+                    <input type="button" class="form-control form-control-lg btn-danger" value="CANCEL" data-bind="click:Cancel"/>
+                </div>
+            </div>
+
+
+        </form>
+
+            </div>    
+    </div>
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/AddProducts.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/Cart.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li>
+                        <a href="">User Account</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Operations<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Products</a></li>
+                            <li><a href="#">Edit Products</a></li>
+                            <li><a href="#">List Of Items</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr class="MenuHr" />
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-bind="if:IsLoggedIn()"><a id="UserName"><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="#" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="body" class="container center-block" style="margin-top:50px;">
+        <div class="text-center well-sm h1">Cart Items</div>
+        <div id="Products" data-bind="foreach:{data:Products,as:'Product'}">
+            <div class="container">
+                <div class="col-md-2 col-xs-6">
+                    <div>Image</div>
+                    </div>           
+                <div class="Detail col-md-3 col-xs-6">
+                    Detail:<br />
+                    <div data-bind="text:Product.Name"></div>
+                    <div>Price: <span data-bind="text:Product.Price">Price</span></div>
+                </div>
+                <div class="col-md-1 col-xs-6">
+                    <span>
+                        Qty:<input id="txtQty" class="Qty" min="1" max="100" type="number" data-bind="value:Product.Qty" />
+                    </span>
+                </div>
+                <div class="col-md-3 col-xs-6 DeliveryDetail">Delivery Detail</div>
+                <div class="col-md-2 col-xs-6">Total= <span data-bind="text:Product.TotalAmount"></span> Rs.</div>
+                <div class="col-md-1 col-xs-6">
+                    <button type="button" class="close btnRemoveIcon" aria-label="Close " data-bind="click:Remove"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="btn btn-warning btnRemove" data-bind="click:Remove">Remove From Cart</button>
+                </div>
+            </div>
+            <hr />
+        </div>
+    </div>
+    <div class="container text-center mark Continue">
+       <!-- <div class="btn btn-default float-right  center-block" data-bind="click:Continue">-->
+            Total Price: Rs. <span data-bind="text:TotalBill"></span>
+            Continue
+            <input type="button" value="Continue" class="btn btn-warning" data-bind="click:Continue" />
+        <!--</div>-->
+    </div>
+
+    <!--<div class="footer">
+        <div class="container">
+            <h4>Total Price: Rs. <span data-bind="text:TotalBill"></span> <input type="button" value="Continue" class="btn btn-warning" data-bind="click:Continue" /></h4>
+        </div>
+    </div>-->
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/Cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../scripts/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../scripts/css/Payment.css" rel="stylesheet" />
+    <link href="../scripts/css/Header.css" rel="stylesheet" />
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"><i class="fa fa-bars fa-1x"></i></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Home.html"><span data-bind="text:BrandName"></span></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="Home.html">Home</a></li>
+                    <li data-bind="if:IsLoggedIn()"><a href="">User Account</a></li>
+                    <li class="dropdown" data-bind="if:IsAdmin()">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Options<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="AddProducts.html">Add Products</a></li>
+                            <li><a href="#">Remove Items</a></li>
+                            <li><a href="#">Edit Items</a></li>
+                            <li><a href="#">List Of Items</a></li>
+                            <li><a href="AddCategories.html">Add Category</a></li>
+                            <li><a href="#">Remove Category</a></li>
+                            <li><a href="#">List Of Categories</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr class="MenuHr" />
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-bind="if:LoggedIn()"><a id="UserName"><span class="glyphicon glyphicon-user"></span> <span data-bind="text:UserName"></span></a></li>
+                    <li><a href="#" data-bind="click:Logout"><span class="glyphicon glyphicon-log-in"></span> <span data-bind="text:Status"></span></a></li>
+                    <li>
+                        <a href="Cart.html">
+                            <img src="../scripts/images/Icons/CartIcon.png" />(<span data-bind="text:CartItems()"></span>)
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container form" style="margin-top: 150px;">
+        <h2 class="well text-center">Enter Your Credit Card Details</h2>
+        <form method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-lg-12" for="txtcardNumber">CARD NUMBER</label>
+                <div class="col-lg-12">
+                    <input type="number" class="form-control" id="txtCardNumber" placeholder="XXXX XXXX XXXX XXXX" data-bind="value:Purchase().CreditCard.CardNumber" max="9999999999999999"/>
+                </div>
+            </div>
+           <div class="form-group">
+               <label class="col-xs-12">EXPIRATION DATE</label>
+                <div class="col-xs-6">
+                   <select class="form-control" data-bind="value:self.Purchase().CreditCard.ExpirationDate.Month,options:Months">
+                       <option>MONTH</option>
+                       <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+                   </select>
+                </div>   
+               <div class="col-xs-6">
+                   <select class="form-control" data-bind="value:self.Purchase().CreditCard.ExpirationDate.Year,options:Years">
+                       <option>
+                           YEAR
+                       </option>
+                   </select>
+               </div> 
+           </div>
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label for="txtCVV">CVV</label>
+                        <input type="number" class="form-control" id="txtCVV" placeholder="XXX" data-bind="value:self.Purchase().CreditCard.CardCode" />
+                   </div>
+               <div class="col-xs-6">
+                   <label for="txtName">Name</label>
+                   <input type="text" class="form-control" id="txtName" placeholder="name" data-bind="value:self.Purchase().CreditCard.CardHolderName" />
+               </div>
+            </div>
+            <div class="form-group">
+            <div class="col-xs-6">
+                <button class="form-control btn btn-warning">Cancel</button>
+            </div>
+            <div class="col-xs-6">
+                <button class="form-control btn btn-primary" data-bind="click:Submit">Submit</button>
+            </div>  
+            </div>
+        </form>
+        </div>
+    <script src="../scripts/jquery-3.3.1.min.js"></script>
+    <script src="../scripts/bootstrap.min.js"></script>
+    <script src="../scripts/knockout-3.4.2.js"></script>
+    <script src="../scripts/javascript/Header.js"></script>
+    <script src="../scripts/javascript/Payment.js"></script>
+</body>
+</html>
